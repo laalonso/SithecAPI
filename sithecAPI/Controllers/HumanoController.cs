@@ -75,18 +75,32 @@ namespace sithecAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// PUNTO 5: Metodo para consultar toda la tabla de Humanos desde bd
+        /// </summary>
+        /// <returns>Lista de objetos de tipo humanos </returns>
         [HttpGet]
         public IActionResult getHumanos()
         {
             return Ok(_humano.getHumanos());
         }
 
+        /// <summary>
+        /// PUNTO 6: Metodo para obtener un humano segun su id      
+        /// </summary>
+        /// <param name="id">identificador del humano</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
-        public IActionResult getHumanos(int id)
+        public IActionResult getHumanoById(int id)
         {
             return Ok(_humano.getHumanosById(id));
         }
 
+        /// <summary>
+        /// PUNTO 7: Metodo para insertar un humano
+        /// </summary>
+        /// <param name="humano">objeto con los valores a insertar</param>
+        /// <returns>id del registro insertado</returns>
         [HttpPost]
         public IActionResult postHumano([FromBody] Humano humano)
         {
@@ -102,6 +116,11 @@ namespace sithecAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Metodo para actualizar un humano buscado por id
+        /// </summary>
+        /// <param name="humano">objeto con los valores a actualizar</param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult putHumano([FromBody] Humano humano)
         {
